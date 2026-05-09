@@ -15,6 +15,7 @@ internal static class RegisterServices
         service.AddTransient<IPasswordHasher<AspNetUser>, PasswordHasher<AspNetUser>>();
         service.AddTransient<IAuthTokenRepository, AuthTokenRepository>();
         service.AddTransient<IFireBaseRepository, FireBaseRepository>();
+        service.AddScoped<IUnitOfWork, UnitOfWork>();
         service.Scan(scan => scan
                     .FromAssemblyOf<IAuthRepository>()
                     .AddClasses()
