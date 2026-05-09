@@ -1,7 +1,15 @@
 using CommonCore.API;
 using CommonCore.API.Filters;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddDependencyInjection(builder);
@@ -10,6 +18,8 @@ builder.Services.AddControllers();
 //builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+app.UseSerilogRequestLogging();
 
 app.UseMiddleware<CustomExceptionHandling>();
 

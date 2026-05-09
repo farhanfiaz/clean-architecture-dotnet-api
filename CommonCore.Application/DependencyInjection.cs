@@ -1,4 +1,6 @@
-﻿using MediatR.NotificationPublishers;
+﻿using CommonCore.Application.Behaviors;
+using MediatR;
+using MediatR.NotificationPublishers;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,11 @@ public static class DependencyInjection
             //cfg.NotificationPublisher = new TaskWhenAllPublisher();
             cfg.NotificationPublisher = new ForeachAwaitPublisher();
         });
+
+        service.AddTransient(
+           typeof(IPipelineBehavior<,>),
+           typeof(LoggingBehavior<,>));
+
         return service;
     }
 }

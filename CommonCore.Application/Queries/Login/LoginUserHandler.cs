@@ -5,16 +5,18 @@ using CommonCore.InterfaceAdapters.Dtos;
 using CommonCore.InterfaceAdapters.Dtos.Auth;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace CommonCore.Application.Queries.Login;
 
 public class LoginUserHandler(IAuthRepository authRepo, UserManager<AspNetUser> _userManager
     , SignInManager<AspNetUser> _signInManager, RoleManager<AspNetRole> _roleManager
-    , IJwtService _iJWTTokenService)
+    , IJwtService _iJWTTokenService, ILogger<LoginUserHandler> _logger)
     : IRequestHandler<LoginUserRequest, ApiResult<AuthResponceVM>>
 {
     public async Task<ApiResult<AuthResponceVM>> Handle(LoginUserRequest request, CancellationToken cancellationToken)
     {
+        _logger.LogInformation("user email is ${Email}", request.model.Email);
         if (string.IsNullOrWhiteSpace(request.model.Email))
         {
             return ApiResult<AuthResponceVM>.Fail("Email required");
@@ -35,5 +37,5 @@ public class LoginUserHandler(IAuthRepository authRepo, UserManager<AspNetUser> 
         }
         return ApiResult<AuthResponceVM>.Success(isUserExist.GenerateAuthResponce(_iJWTTokenService.GenerateToken(isUserExist)));
     }
-    
+
 }
