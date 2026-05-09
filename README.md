@@ -20,6 +20,8 @@ It includes JWT Authentication, API Key security, Identity (Code-First), MediatR
 - 🧠 Custom Mapper (Manual mapping layer)
 - 📦 Domain Events support
 - 🧩 Modular & scalable architecture
+- 🚦 Rate Limiting support for API protection & traffic control
+- 💾 Database Transaction handling with Unit of Work pattern support
 
 ------------------------------------------------------------
 
