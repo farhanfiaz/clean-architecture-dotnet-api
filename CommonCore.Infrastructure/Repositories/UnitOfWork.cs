@@ -4,8 +4,15 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CommonCore.Infrastructure.Repositories;
 
-public class UnitOfWork(CommonCoreDbContext _dbContext, IDbContextTransaction? _transaction) : IUnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
+    private readonly CommonCoreDbContext _dbContext;
+    private IDbContextTransaction? _transaction;
+
+    public UnitOfWork(CommonCoreDbContext context)
+    {
+        _dbContext = context;
+    }
     public async Task BeginTransactionAsync()
     {
         _transaction =
