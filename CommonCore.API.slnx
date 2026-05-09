@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="CommonCore.API/CommonCore.API.csproj" />
+  <Project Path="CommonCore.Application/CommonCore.Application.csproj" />
+  <Project Path="CommonCore.Core/CommonCore.Core.csproj" />
+  <Project Path="CommonCore.Infrastructure/CommonCore.Infrastructure.csproj" />
+  <Project Path="CommonCore.InterfaceAdapters/CommonCore.InterfaceAdapters.csproj" />
+</Solution>

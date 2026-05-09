@@ -1,0 +1,6 @@
+@CommonCore.API_HostAddress = http://localhost:5113
+
+GET {{CommonCore.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

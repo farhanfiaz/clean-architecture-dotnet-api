@@ -1,0 +1,96 @@
+## ===============================
+## Visual Studio / IDE
+## ===============================
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## ===============================
+## Build output
+## ===============================
+bin/
+obj/
+out/
+build/
+publish/
+
+## ===============================
+## .NET
+## ===============================
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+## EF Core
+Migrations/*Designer.cs
+Migrations/*ModelSnapshot.cs
+
+## ===============================
+## User secrets
+## ===============================
+secrets.json
+
+## ===============================
+## ASP.NET Core
+## ===============================
+appsettings.Development.json
+appsettings.Production.json
+
+## If you DON'T want to commit configs with secrets
+# appsettings.json
+
+## ===============================
+## Database
+## ===============================
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+## ===============================
+## Node / frontend (if any future UI added)
+## ===============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## ===============================
+## OS files
+## ===============================
+.DS_Store
+Thumbs.db
+
+## ===============================
+## Logs & runtime
+## ===============================
+Logs/
+*.log
+
+## ===============================
+## Docker (optional)
+## ===============================
+docker-compose.override.yml
+
+## ===============================
+## Rider / JetBrains
+## ===============================
+.idea/
+
+## ===============================
+## Publish folders
+## ===============================
+publish/
+wwwroot/publish/
+
+## ===============================
+## Security (important)
+## ===============================
+# Never commit secrets or keys
+*.key
+*.pem
